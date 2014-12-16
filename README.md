@@ -7,6 +7,7 @@ spring-mvc-custom-exception
 ===========================
 ~~~
 git clone https://github.com/sbcoba/spring-mvc-custom-exception.git
+cd spring-mvc-custom-exception
 mvn spring-boot:run 
 ~~~
 
