@@ -12,15 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class TestController {
 
-	@ResponseBody
-	@RequestMapping("/exception")
-	public String exception() {
-		return "<html>"
-				+ "<head><title>예외페이지</title></head>"
-				+ "<body>예외입니다.</body>"
-				+ "</html>";
-	}
-
 	@RequestMapping("/test")
 	public String test() {
 		throw new RuntimeException("예외가 발생했습니다.");

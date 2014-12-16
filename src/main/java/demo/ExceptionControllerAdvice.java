@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.method.HandlerMethod;
 
 /**
@@ -29,6 +30,7 @@ public class ExceptionControllerAdvice {
 	 * @return
 	 */
 	@ExceptionHandler(Throwable.class)
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public Object exception(Throwable e, HandlerMethod handlerMethod, HttpServletRequest request) {
 		ResponseBody methodAnnotation = handlerMethod.getMethodAnnotation(ResponseBody.class);
 		HttpStatus statusCode = getStatusCode(e);
@@ -48,6 +50,7 @@ public class ExceptionControllerAdvice {
 	}
 
 	/**
+	 * 예외를 통해 status 코드를 결정
 	 * @param e
 	 * @return
 	 */

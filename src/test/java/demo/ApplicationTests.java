@@ -36,8 +36,8 @@ public class ApplicationTests {
 	public void exceptionRedirectTest() throws Exception {
 		mockMvc.perform(get("/test"))
 		.andExpect(handler().methodName("test"))
-		.andExpect(status().is3xxRedirection())
-		.andExpect(redirectedUrl("/exception"));
+		.andExpect(status().isInternalServerError())
+		.andExpect(forwardedUrl("/exception"));
 	}
 
 	@Test
